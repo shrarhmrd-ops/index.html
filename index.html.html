@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="معرض أعمالي في تصميم وتطوير المواقع والبرامج">
+  <title>معرض أعمالي | Portfolio</title>
+
+  <style>
+    :root {
+      --bg: #080b0a;
+      --panel: #111713;
+      --green: #b4ff00;
+      --text: #f4f7f0;
+      --muted: #a6afa5;
+      --border: #29352a;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Tahoma, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.8;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1100px, 92%);
+      margin: auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(8, 11, 10, .95);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(12px);
+    }
+
+    nav {
+      min-height: 72px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      padding: 12px 0;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    .logo span {
+      color: var(--green);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      flex-wrap: wrap;
+      font-size: 14px;
+    }
+
+    .nav-links a:hover {
+      color: var(--green);
+    }
+
+    .hero {
+      min-height: 570px;
+      display: flex;
+      align-items: center;
+      padding: 80px 0;
+      background:
+        radial-gradient(ellipse at 15% 25%,
+        rgba(180,255,0,.09), transparent 40%);
+    }
+
+    .hero-content {
+      max-width: 750px;
+    }
+
+    .tag {
+      display: inline-block;
+      color: var(--green);
+      border: 1px solid var(--border);
+      background: var(--panel);
+      padding: 5px 14px;
+      border-radius: 30px;
+      margin-bottom: 22px;
+      font-size: 13px;
+    }
+
+    h1 {
+      font-size: clamp(34px, 6vw, 58px);
+      line-height: 1.35;
+      margin-bottom: 18px;
+    }
+
+    h1 span,
+    .accent {
+      color: var(--green);
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 17px;
+      max-width: 620px;
+      margin-bottom: 28px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      border: 1px solid var(--green);
+      padding: 11px 22px;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: .2s;
+    }
+
+    .btn-primary {
+      background: var(--green);
+      color: #10150a;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      opacity: .88;
+    }
+
+    .btn-outline {
+      color: var(--green);
+    }
+
+    section {
+      padding: 65px 0;
+      scroll-margin-top: 85px;
+    }
+
+    .section-title {
+      font-size: 30px;
+      margin-bottom: 8px;
+    }
+
+    .section-desc {
+      color: var(--muted);
+      margin-bottom: 30px;
+    }
+
+    .about-box,
+    .project-card,
+    .skill-card,
+    .contact-box {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 24px;
+    }
+
+    .about-box p {
+      color: var(--muted);
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .project-card {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      transition: .25s;
+    }
+
+    .project-card:hover {
+      border-color: var(--green);
+      transform: translateY(-4px);
+    }
+
+    .project-icon {
+      height: 125px;
+      display: grid;
+      place-items: center;
+      background: #1a2415;
+      border-radius: 10px;
+      font-size: 44px;
+    }
+
+    .project-card p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .project-card .btn {
+      align-self: flex-start;
+      margin-top: auto;
+      font-size: 13px;
+      padding: 7px 15px;
+    }
+
+    .skills {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .skill-card {
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .skill-card span {
+      display: block;
+      font-size: 27px;
+      margin-bottom: 5px;
+    }
+
+    .contact-box {
+      text-align: center;
+    }
+
+    .contact-box p {
+      color: var(--muted);
+      margin: 10px 0 22px;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      text-align: center;
+      padding: 25px 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 650px) {
+      nav {
+        justify-content: center;
+      }
+
+      .nav-links {
+        justify-content: center;
+        gap: 14px;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 75px 0;
+      }
+
+      .projects,
+      .skills {
+        grid-template-columns: 1fr;
+      }
+
+      .section-title {
+        font-size: 25px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="container">
+      <nav>
+        <a class="logo" href="#home">MY <span>PORTFOLIO</span></a>
+
+        <div class="nav-links">
+          <a href="#home">الرئيسية</a>
+          <a href="#about">من أنا</a>
+          <a href="#projects">أعمالي</a>
+          <a href="#skills">مهاراتي</a>
+          <a href="#contact">تواصل معي</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container">
+        <div class="hero-content">
+          <span class="tag">مطور ويب في بداية رحلتي</span>
+
+          <h1>
+            أهلاً، أنا <span>محمد ياسر</span><br>
+            أصنع أفكارًا رقمية
+          </h1>
+
+          <p>
+            أعمل على تصميم وتطوير مواقع الويب والبرامج،
+            وأسعى لتحويل الأفكار إلى مشاريع عملية
+            بتصميم عصري وتجربة استخدام سهلة.
+          </p>
+
+          <div class="buttons">
+            <a href="#projects" class="btn btn-primary">
+              شاهد أعمالي
+            </a>
+
+            <a href="#contact" class="btn btn-outline">
+              تواصل معي
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <h2 class="section-title">من أنا؟</h2>
+        <p class="section-desc">تعرف عليّ وعلى رحلتي في البرمجة.</p>
+
+        <div class="about-box">
+          <p>
+            أنا طالب في هندسه مهتم بالبرمجة وتطوير المواقع والتطبيقات.
+            أتعلم باستمرار وأعمل على تنفيذ مشروعات حقيقية،
+            بهدف اكتساب الخبرة وتقديم حلول مفيدة للعملاء.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <h2 class="section-title">مشاريعي</h2>
+        <p class="section-desc">نماذج من الأعمال التي أعمل عليها.</p>
+
+        <div class="projects">
+
+          <article class="project-card">
+            <div class="project-icon">🏋️</div>
+            <h3>GYM ELITE</h3>
+            <p>
+              مشروع لإدارة الجيم والعملاء والاشتراكات
+              والحضور والمبيعات.
+            </p>
+            <span class="tag">Web Application</span>
+            <a class="btn btn-outline"
+               href="#contact">
+              استفسر عن المشروع
+            </a>
+          </article>
+
+          <article class="project-card">
+            <div class="project-icon">💻</div>
+            <h3>Personal Portfolio</h3>
+            <p>
+              موقعي الشخصي لعرض أعمالي ومهاراتي
+              والمشروعات التي أنفذها.
+            </p>
+            <span class="tag">HTML / CSS / JavaScript</span>
+            <a class="btn btn-outline"
+               href="#home">
+              أنت هنا الآن
+            </a>
+          </article>
+
+          <article class="project-card">
+            <div class="project-icon">📱</div>
+            <h3>مشروع جديد</h3>
+            <p>
+              هنا يمكنك إضافة مشروع آخر عند الانتهاء منه.
+            </p>
+            <span class="tag">Coming Soon</span>
+          </article>
+
+          <article class="project-card">
+            <div class="project-icon">🚀</div>
+            <h3>المشروع القادم</h3>
+            <p>
+              مساحة مخصصة لعرض أفكارك ومشاريعك المستقبلية.
+            </p>
+            <span class="tag">In Progress</span>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <h2 class="section-title">مهاراتي</h2>
+        <p class="section-desc">
+          الأدوات والتقنيات التي أتعلمها وأستخدمها.
+        </p>
+
+        <div class="skills">
+          <div class="skill-card">
+            <span>🌐</span>
+            HTML
+          </div>
+
+          <div class="skill-card">
+            <span>🎨</span>
+            CSS
+          </div>
+
+          <div class="skill-card">
+            <span>⚡</span>
+            JavaScript
+          </div>
+
+          <div class="skill-card">
+            <span>💻</span>
+            C++
+          </div>
+
+          <div class="skill-card">
+            <span>📱</span>
+            Responsive Design
+          </div>
+
+          <div class="skill-card">
+            <span>🧠</span>
+            Problem Solving
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="contact-box">
+          <h2 class="section-title">عندك فكرة؟</h2>
+
+          <p>
+            لو عندك مشروع أو محتاج موقع ويب،
+            تقدر تتواصل معي لمناقشة فكرتك.
+          </p>
+
+          <!-- 01019261131-->
+          <a class="btn btn-primary"
+             href="https://wa.me/201019261131"
+             target="_blank"
+             rel="noopener noreferrer">
+            تواصل عبر واتساب
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © <span id="year"></span> MY PORTFOLIO — جميع الحقوق محفوظة
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+  </script>
+
+</body>
+</html>
